@@ -1,10 +1,11 @@
-from server import db, app
-from models.restaurant import Restaurant
-from models.pizza import Pizza
-from models.restaurant_pizza import RestaurantPizza
+from server import create_app, db
+from server.models.restaurant import Restaurant
+from server.models.pizza import Pizza
+from server.models.restaurant_pizza import RestaurantPizza
 
 def seed_data():
-    with app.app_context():
+    app = create_app()  
+    with app.app_context():  
         
         db.drop_all()
         db.create_all()
